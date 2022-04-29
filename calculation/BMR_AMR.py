@@ -1,9 +1,11 @@
 import re
 import sys
 
+
+
 # input basic information
 
-print("Please enter your personal information!")
+#print("Please enter your personal information!")
 
 gender = input("please enter your gender ( male or female):")
 if not re.match('male|female', gender):
@@ -11,17 +13,17 @@ if not re.match('male|female', gender):
     sys.exit()
 
 weight = float(input("please enter your weight (unit: kg):"))
-if weight <0 or weight > 300:
+if weight < 0 or weight > 300:
     print("Error! Only the weight between 0 and 300 allowed!")
     sys.exit()
 
 height = float(input("please enter your height (unit: cm):"))
-if height <100 or height > 999:
+if height < 100 or height > 999:
     print("Error! Only 3 characters allowed!")
     sys.exit()
 
 age = int(input("please enter your age:"))
-if age <0 or age >100:
+if age < 0 or age > 100:
     print("Error! Only 2 characters allowed!")
     sys.exit()
 
@@ -48,7 +50,7 @@ Very active (hard exercise 6–7 days/week)：please enter 5 below
 frequency = input("Please follow the prompts above to enter your exercise frequency:")
 sport = int(frequency)
 
-if sport!=1 and sport!=2 and sport!=3 and sport!=4 and sport!=5:
+if sport != 1 and sport != 2 and sport != 3 and sport != 4 and sport != 5:
     print("Error! Only number 1,2,3,4,5 allowed!")
     sys.exit()
 
@@ -59,7 +61,7 @@ try:
         if sport == 1:
             amr = round(bmr * 1.2, 2)
         elif sport == 2:
-            amr = round(bmr*1.375, 2)
+            amr = round(bmr * 1.375, 2)
         elif sport == 3:
             amr = round(bmr * 1.55, 2)
         elif sport == 4:
