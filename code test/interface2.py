@@ -1,26 +1,38 @@
 import tkinter as tk
+from doctest import master
 from tkinter import messagebox
 import ttkbootstrap as ttk
-from interface3 import Recommendation
 
 
-class AMR:
+class AMRPage:
     def __init__(self, master):
-
         style = ttk.Style(theme='darkly')
 
         self.window = style.master
         self.window.title('Your Calories')
-        self.window.geometry('500x500')
+        self.window.geometry('650x650')  # size
 
-        self.page = tk.Frame(window)
-        self.page.pack()
+        self.notebook = ttk.Notebook(style.master)
+        self.notebook.pack(pady=10, expand=True)
 
-        ttk.Button(self.page, text='Next', command=Recommendation(self.page), style='success.TButton').grid(row=6, column=1, pady=30)
+        self.frame1 = tk.Frame(self.notebookc)
+        self.frame2 = tk.Frame(self.notebook, width=600, height=600)
+        self.frame3 = tk.Frame(self.notebook, width=600, height=600)
+
+        self.frame1.pack(fill='both', expand=True)
+        self.frame2.pack(fill='both', expand=True)
+        self.frame2.pack(fill='both', expand=True)
+
+        self.notebook.add(self.frame1, text='Breakfast choice')
+        self.notebook.add(self.frame2, text='Lunch choice')
+        self.notebook.add(self.frame3, text='Lunch choice')
+
+
+
 
 
 
 if __name__ == '__main__':
     window = tk.Tk()
-    AMR(master=window)
+    AMRPage(master=window)
     window.mainloop()
