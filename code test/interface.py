@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
 import pandas as pd
-from interface2 import AMRPage
+from interface2 import Recommendation
 import ttkbootstrap as ttk
 from saveinfo import AllInfo
 
@@ -164,7 +164,7 @@ class InfoPage:
         if gender == "female" or gender == "male" or not weight is None or not height is None or not sport is None or not age is None:
             self.page.destroy()
             self.notebook.destroy()
-            AMRPage(self.window)
+            Recommendation(self.window)
         else:
             messagebox.showwarning(title='WARNING', message='Fail to entry, please check your information')
 

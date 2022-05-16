@@ -4,13 +4,13 @@ from tkinter import messagebox
 import ttkbootstrap as ttk
 
 
-class AMRPage:
+class Recommendation:
     def __init__(self, master):
         # here is creating the general window for interface
         style = ttk.Style(theme='darkly')
 
         self.window = style.master
-        self.window.title('Your Calories')
+        self.window.title('Your Optimal McDonalds Choice')
         self.window.geometry('650x650')  # size
 
         self.page = tk.Frame(self.window)
