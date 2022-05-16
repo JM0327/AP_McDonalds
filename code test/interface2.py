@@ -15,7 +15,7 @@ class AMRPage:
         self.notebook = ttk.Notebook(style.master)
         self.notebook.pack(pady=10, expand=True)
 
-        self.frame1 = tk.Frame(self.notebookc)
+        self.frame1 = tk.Frame(self.notebook)
         self.frame2 = tk.Frame(self.notebook, width=600, height=600)
         self.frame3 = tk.Frame(self.notebook, width=600, height=600)
 
