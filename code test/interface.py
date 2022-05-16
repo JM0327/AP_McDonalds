@@ -8,15 +8,17 @@ from saveinfo import AllInfo
 class InfoPage:
 
     def __init__(self, master):
-
+        # here is creating the general window for interface
         style = ttk.Style(theme='darkly')
 
         self.window = style.master
         self.window.title('Personal Information')
         self.window.geometry('650x650')  # size
 
-        # Drop Down box
+        self.page = tk.Frame(window)
+        self.page.pack()
 
+        # Drop Down box content
         clickgender = ["Drop down choose",
                        "female",
                        "male"]
@@ -25,16 +27,14 @@ class InfoPage:
                       "Lightly active",
                       "Moderately active",
                       "Active"]
-
+        # here is getting the info users put in
         self.inputgender = tk.StringVar()
         self.inputweight = tk.StringVar()
         self.inputheight = tk.StringVar()
         self.inputage = tk.StringVar()
         self.inputsport = tk.StringVar()
 
-        self.page = tk.Frame(window)
-        self.page.pack()
-
+        # here is creating a series of buttom and box that input the inforamtion
         tk.Label(self.page).grid(row=0, column=0)
 
         tk.Label(self.page, text='Gender(male/female): ', anchor="ne", width=15).grid(row=1, column=0,pady=20)
@@ -65,7 +65,7 @@ class InfoPage:
         self.frame.pack_propagate(0)
         self.notebook.add(self.frame, text='Your AMR')
 
-
+    # function for calculating the amr
     def bmramr(self):
         global bmr, amr, breakfastamr, lunchamr, dinneramr
 
@@ -103,6 +103,7 @@ class InfoPage:
             lunchamr = "!"
             dinneramr= "!"
 
+    # create a popup window that can initiate the display of calculation results
     def popup(self):
         response = messagebox.askquestion("Q", "Do you want to know your AMR")
         if response == "yes":
@@ -113,7 +114,7 @@ class InfoPage:
         else:
             ttk.Label(self.frame, text="oops!",style="dark").pack()
 
-
+    # check if all the information already input and turn to the next page.
     def check(self):
 
         gender = self.inputgender.get()
