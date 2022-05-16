@@ -18,13 +18,13 @@ class InfoPage:
         # Drop Down box
 
         clickgender = ["Drop down choose",
-                       "      female      ",
-                       "       male       "]
+                       "female",
+                       "male"]
         clicksport = ["Drop down choose",
-                      "     Sedentary     ",
-                      "  Lightly active   ",
-                      " Moderately active ",
-                      "       Active      "]
+                      "Sedentary",
+                      "Lightly active",
+                      "Moderately active",
+                      "Active"]
 
         self.inputgender = tk.StringVar()
         self.inputweight = tk.StringVar()
@@ -76,9 +76,9 @@ class InfoPage:
         sport = self.inputsport.get()
 
         if gender == "male":
-            bmr = 13.7 * int(weight) + 5.0 * int(height) - 6.8 * int(age) + 66
+            bmr = 13.75 * int(weight) + 5.003 * int(height) - 6.755* int(age) + 66.47
         else:
-            bmr = 9.6 * int(weight) + 3.8 * int(height) - 4.7 * int(age) + 655
+            bmr = 9.563 * int(weight) + 1.850 * int(height) - 4.676 * int(age) + 655.1
 
         if sport == "Sedentary":
             amr = round(bmr * 1.2, 2)

@@ -12,18 +12,18 @@ class Recommendation:
         #self.window = style.master
         self.window.title('Choices for you')
         self.window.geometry('500x500')  # size
-        self.CreatePage()
 
-    def callback():
-        print("~被调用啦~")
+        ttk.Button(self.window, text='Breakfast', style='success.TButton', command=self.recommenddish,
+                   width=10).place(x=30, y=20)
+        ttk.Button(self.window, text='Lunch', style='success.TButton', command=self.recommenddish,
+                   width=10).place(x=180, y=20)
+        ttk.Button(self.window, text='Dinner', style='success.TButton', command=self.recommenddish,
+                   width=10).place(x=330, y=20)
 
-    def CreatePage(self):
-        menubar = tk.Menu(self.window)
+    def recommenddish(self):
+        pass
 
-        menubar.add_command(label='Breakfast', command=self.callback)
-        menubar.add_command(label='Lunch')
-        menubar.add_command(label='Dinner')
-        self.window['menu']=menubar
+
 
 
 

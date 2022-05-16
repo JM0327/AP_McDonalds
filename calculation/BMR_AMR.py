@@ -32,7 +32,7 @@ if age < 0 or age > 100:
 if gender == "male":
     bmr = 13.7 * weight + 5.0 * height - 6.8 * age + 66
 elif gender == "female":
-    bmr = 9.6 * weight + 3.8 * height - 4.7 * age + 655
+    bmr = 9.563 * weight + 1.850 * height - 4.676 * age + 655.1
 else:
     bmr = -1
 
