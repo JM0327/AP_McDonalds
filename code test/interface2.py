@@ -68,11 +68,6 @@ class AMRPage:
     # haven't finished, it should be linked with the optimization part
     def popup(self):
 
-        breakfastchoice = self.breakfastchoice.get()
-        lunchchoice = self.lunchchoice.get()
-        dinnerchoice = self.dinnerchoice.get()
-
-
         if not breakfastchoice is None or not lunchchoice is None or not dinnerchoice is None :
             response = messagebox.askquestion("Q", "Do you want to find your recommendation dishes?")
             if response == "yes":
