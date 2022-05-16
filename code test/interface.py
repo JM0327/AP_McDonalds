@@ -78,7 +78,7 @@ class InfoPage:
         self.notebook.add(self.frame2, text='AMR explanation')
 
         # amr explanation
-        ttk.Label(self.frame2, text="AMR represents the amount of calories you need to intake each day to stay "
+        ttk.Label(self.frame2, text="AMR represents the amount of calories you need to consume each day to stay "
                                     "at your current weight.", anchor='sw', font=(30), style="info").pack(pady=5)
         ttk.Label(self.frame2, text="AMR for breakfast and lunch are 35% of AMR per day, respectively.", anchor='sw',
                   font=(30), style="info", width=200).pack(pady=5)
