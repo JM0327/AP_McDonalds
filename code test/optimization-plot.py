@@ -4,6 +4,7 @@ from ortools.linear_solver import pywraplp
 from matplotlib import pyplot as plt
 
 def optimization_meal(breakfastamr, lunchamr, dinneramr):
+
     def create_data_model():
         """Stores the data for the problem."""
         data = {}

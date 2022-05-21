@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from ortools.linear_solver import pywraplp
 
+
 def optimization_meal(breakfastamr, lunchamr, dinneramr):
     def create_data_model():
         """Stores the data for the problem."""
@@ -135,7 +136,9 @@ def optimization_meal(breakfastamr, lunchamr, dinneramr):
             print('Problem solved in %d branch-and-bound nodes' % solver.nodes())
         else:
             print('The problem does not have an optimal solution.')
+
     return breakfast_output, lunch_output, dinner_output
+
 
 if __name__ == '__main__':
     breakfastamr = 553
@@ -145,5 +148,6 @@ if __name__ == '__main__':
     print(breakfast_output)
     print(lunch_output)
     print(dinner_output)
+
 
 
