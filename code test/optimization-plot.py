@@ -148,82 +148,75 @@ if __name__ == '__main__':
     print(lunch_output)
     print(dinner_output)
 
-    columns = ["Calories", "Total Fat", "Saturated Fat", "Cholesterol", "Sodium", "Sugars"]
-    color_choose = ['lightcoral', 'darkorange', 'plum', 'palegreen', 'skyblue', 'paleturquoise']
 
-    # breakfast plot
-    breakfast_values = []
-    for key in breakfast_output.keys():
-        add_value = breakfast_output[key]
-        breakfast_values.append(add_value)
-    breakfast_values=breakfast_values[2:8]
-    # print(breakfast_values)
-
-    for i in range(6):
-        if i == 0:
-            breakfast_values[i] = breakfast_values[0]*100/breakfastamr
-        else:
-            breakfast_values[i] = breakfast_values[i]/0.35
-    # print(breakfast_values)
+# the function of draw a plot
 
 
-    x_axis = range(len(columns))
-    plt.bar(x_axis, breakfast_values, width=0.4, color=color_choose)
-    plt.xticks(x_axis, columns)
-    plt.yticks(np.arange(0, 110, 10))
-    plt.ylabel("percentage")
-    plt.title("The nutrition provided by McDonald's breakfast\n(% of total breakfast nutrition needed)")
-    y_max = max(breakfast_values)+max(breakfast_values)/6
-    for x,y in enumerate(breakfast_values):
-        plt.text(x, y+y_max/ 100, str(round(breakfast_values[x],1))+"%", ha="center")
-    plt.show()
+    def graph(optimization_output):
+        columns = ["Calories", "Total Fat", "Saturated Fat", "Cholesterol", "Sodium", "Sugars"]
+        color_choose = ['lightcoral', 'darkorange', 'plum', 'palegreen', 'skyblue', 'paleturquoise']
+        # color the bar plot
 
-    # lunch plot
-    lunch_values = []
-    for key in lunch_output.keys():
-        add_value2 = lunch_output[key]
-        lunch_values.append(add_value2)
-    lunch_values = lunch_values[2:8]
-    print(lunch_values)
+        dish_values = []
+        for key in optimization_output.keys():
+            add_value1 = optimization_output[key]
+            dish_values.append(add_value1)
+        dish_values = dish_values[2:8]
+        print(dish_values)
 
-    for i in range(6):
-        if i == 0:
-            lunch_values[i] = lunch_values[0] * 100 / lunchamr
-        else:
-            lunch_values[i] = lunch_values[i] / 0.35
-    print(lunch_values)
+        if optimization_output == breakfast_output:
+            for i in range(6):
+                if i == 0:
+                    dish_values[i] = dish_values[i] * 100 / breakfastamr
+                else:
+                    dish_values[i] = dish_values[i] / 0.35
+            x_axis = range(len(columns))
+            plt.bar(x_axis, dish_values, width=0.4, color=color_choose)
+            plt.xticks(x_axis, columns)
+            plt.yticks(np.arange(0, 110, 10))
+            plt.ylabel("percentage")
+            plt.title("The nutrition provided by McDonald's breakfast\n(% of total meal nutrition needed)")
+            b_y_max = max(dish_values) + max(dish_values) / 6
+            for x, y in enumerate(dish_values):
+                plt.text(x, y + b_y_max / 100, str(round(dish_values[x], 1)) + "%", ha="center")
+            plt.savefig('./breakfast_plot.jpg')
 
-    plt.bar(x_axis, lunch_values, width=0.4, color=color_choose)
-    plt.xticks(x_axis, columns)
-    plt.yticks(np.arange(0, 110, 10))
-    plt.ylabel("percentage")
-    plt.title("The nutrition provided by McDonald's lunch\n(% of total lunch nutrition needed)")
-    l_y_max = max(lunch_values) + max(lunch_values) / 6
-    for x, y in enumerate(lunch_values):
-        plt.text(x, y + l_y_max / 100, str(round(lunch_values[x], 1)) + "%", ha="center")
-    plt.show()
+        elif optimization_output == lunch_output:
+            for i in range(6):
+                if i == 0:
+                    dish_values[i] = dish_values[i] * 100 / lunchamr
+                else:
+                    dish_values[i] = dish_values[i] / 0.35
+            x_axis = range(len(columns))
+            plt.bar(x_axis, dish_values, width=0.4, color=color_choose)
+            plt.xticks(x_axis, columns)
+            plt.yticks(np.arange(0, 110, 10))
+            plt.ylabel("percentage")
+            plt.title("The nutrition provided by McDonald's lunch\n(% of total meal nutrition needed)")
+            b_y_max = max(dish_values) + max(dish_values) / 6
+            for x, y in enumerate(dish_values):
+                plt.text(x, y + b_y_max / 100, str(round(dish_values[x], 1)) + "%", ha="center")
+            plt.savefig('./lunch_plot.jpg')
 
-    # dinner plot
-    dinner_values = []
-    for key in dinner_output.keys():
-        add_value3 = dinner_output[key]
-        dinner_values.append(add_value3)
-    dinner_values = dinner_values[2:8]
-    print(dinner_values)
+        elif optimization_output == dinner_output:
+            for i in range(6):
+                if i == 0:
+                    dish_values[i] = dish_values[i] * 100 / dinneramr
+                else:
+                    dish_values[i] = dish_values[i] / 0.3
+            x_axis = range(len(columns))
+            plt.bar(x_axis, dish_values, width=0.4, color=color_choose)
+            plt.xticks(x_axis, columns)
+            plt.yticks(np.arange(0, 110, 10))
+            plt.ylabel("percentage")
+            plt.title("The nutrition provided by McDonald's meal\n(% of total meal nutrition needed)")
+            b_y_max = max(dish_values) + max(dish_values) / 6
+            for x, y in enumerate(dish_values):
+                plt.text(x, y + b_y_max / 100, str(round(dish_values[x], 1)) + "%", ha="center")
+            plt.savefig('./dinner_plot.jpg')
 
-    for i in range(6):
-        if i == 0:
-            dinner_values[i] = dinner_values[0] * 100 / dinneramr
-        else:
-            dinner_values[i] = dinner_values[i] / 0.3
-    print(dinner_values)
 
-    plt.bar(x_axis, dinner_values, width=0.4, color=color_choose)
-    plt.xticks(x_axis, columns)
-    plt.yticks(np.arange(0, 110, 10))
-    plt.ylabel("percentage")
-    plt.title("The nutrition provided by McDonald's dinner\n(% of total dinner nutrition needed)")
-    d_y_max = max(dinner_values) + max(dinner_values) / 6
-    for x, y in enumerate(dinner_values):
-        plt.text(x, y + d_y_max / 100, str(round(dinner_values[x], 1)) + "%", ha="center")
-    plt.show()
+    graph(breakfast_output)
+    graph(lunch_output)
+    graph(dinner_output)
+
