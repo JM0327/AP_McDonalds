@@ -36,21 +36,25 @@ class InfoPage:
         # here is creating a series of buttom and box that input the inforamtion
         tk.Label(self.page).grid(row=0, column=0)
 
-        ttk.Label(self.page, text='Gender(male/female): ', anchor="nw", width=15, style='info').grid(row=1, column=0, pady=25)
+        ttk.Label(self.page, text='Gender(male/female): ', anchor="nw", width=15, style='info').grid(row=1, column=0,
+                                                                                                     pady=25)
         ttk.OptionMenu(self.page, self.inputgender, *clickgender, style="info-outline").grid(row=1, column=2)
 
-        ttk.Label(self.page, text='Weight(unit:kg): ', anchor="nw", width=15, style='info').grid(row=2, column=0, pady=25)
+        ttk.Label(self.page, text='Weight(unit:kg): ', anchor="nw", width=15, style='info').grid(row=2, column=0,
+                                                                                                 pady=25)
         tk.Spinbox(self.page, from_=30, to=200, textvariable=self.inputweight, wrap=False, width=10).grid(row=2,
                                                                                                           column=2)
 
-        ttk.Label(self.page, text='Height(unit:cm): ', anchor="nw", width=15, style='info').grid(row=3, column=0, pady=25)
+        ttk.Label(self.page, text='Height(unit:cm): ', anchor="nw", width=15, style='info').grid(row=3, column=0,
+                                                                                                 pady=25)
         tk.Spinbox(self.page, from_=140, to=250, textvariable=self.inputheight, wrap=False, width=10).grid(row=3,
                                                                                                            column=2)
 
         ttk.Label(self.page, text='Age(integer): ', anchor="nw", width=15, style='info').grid(row=4, column=0, pady=25)
         tk.Spinbox(self.page, from_=10, to=100, textvariable=self.inputage, wrap=False, width=10).grid(row=4, column=2)
 
-        ttk.Label(self.page, text='Sport frequency: ', anchor="nw", width=15, style='info').grid(row=5, column=0, pady=25)
+        ttk.Label(self.page, text='Sport frequency: ', anchor="nw", width=15, style='info').grid(row=5, column=0,
+                                                                                                 pady=25)
         ttk.OptionMenu(self.page, self.inputsport, *clicksport, style="info-outline").grid(row=5, column=2)
 
         tk.Label(self.page, text='     ').grid(row=6, column=1, pady=5)  # dummy column
@@ -69,15 +73,9 @@ class InfoPage:
         age = self.inputage.get()
         sport = self.inputsport.get()
 
-        if gender == "female" or gender == "male" and not sport is None :
+        if gender == "female" or gender == "male" and not sport is None:
             self.page.destroy()
             AMRPage(self.window, gender=gender, height=height, weight=weight, age=age, sport=sport)
         else:
             messagebox.showwarning(title='WARNING', message='Fail to entry, please check your information')
 
-
-
-if __name__ == '__main__':
-    window = tk.Tk()
-    InfoPage(master=window)
-    window.mainloop()
