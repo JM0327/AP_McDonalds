@@ -25,7 +25,7 @@ class Recommendation:
                 - frame1.1 -> for showing result
                 - frame1.2 -> for plotting
         """
-        self.notebook = ttk.Notebook(style.master, style='info', height= 480)
+        self.notebook = ttk.Notebook(style.master, style='warning', height=480)
         self.notebook.pack(anchor='s', pady=5, expand=True)
 
         self.frame1 = tk.Frame(self.notebook, width=480, height=480)
@@ -60,7 +60,7 @@ class Recommendation:
 
         self.notebook.add(self.frame1, text='Breakfast choice')
         self.notebook.add(self.frame2, text='Lunch choice')
-        self.notebook.add(self.frame3, text='Lunch choice')
+        self.notebook.add(self.frame3, text='Dinner choice')
         """
         result import
         """

@@ -1,12 +1,14 @@
 from Interface_2 import *
 from tkinter import messagebox
 import ttkbootstrap as ttk
-
+from PIL import Image, ImageTk
 
 class InfoPage:
 
     def __init__(self, master):
-        # here is creating the general window for interface
+        """
+        create window
+        """
         style = ttk.Style(theme='flatly')
 
         self.window = style.master
@@ -14,11 +16,45 @@ class InfoPage:
         self.window.geometry('500x500')  # size
 
         self.page = tk.Frame(self.window)
-        self.page.pack()
+        self.page.pack(fill='both')
+
+        """
+        overall layout
+        """
+        self.frame1 = tk.Frame(self.page, width=500, height=50)
+        self.frame2 = tk.Frame(self.page, width=500, height=450)
+        self.frame21 = tk.Frame(self.frame2)
+        self.frame22 = tk.Frame(self.frame2)
+        self.frame23 = tk.Frame(self.frame2)
+        self.frame24 = tk.Frame(self.frame2)
+        self.frame25 = tk.Frame(self.frame2)
+        self.frame26 = tk.Frame(self.frame2)
+        self.frame1.pack(pady=20)
+        self.frame2.pack()
+        self.frame21.pack(fill='x', pady=10, anchor='n')
+        self.frame22.pack(fill='x', pady=10, anchor='n')
+        self.frame23.pack(fill='x', pady=10, anchor='n')
+        self.frame24.pack(fill='x', pady=10, anchor='n')
+        self.frame25.pack(fill='x', pady=10, anchor='n')
+        self.frame26.pack(fill='x', pady=5, anchor='n')
+
+
+        """
+        logo
+        """
+        self.image = Image.open("../Application/Picture/McDonalds_logo.jpg")
+        self.image = self.image.resize((154, 117), Image.ANTIALIAS)
+        self.logo = ImageTk.PhotoImage(self.image)
+        self.label_img = tk.Label(self.frame1, image=self.logo)
+        self.label_img.pack(anchor='center')
+
+        """
+        personal informaitno input
+        """
 
         clickgender = ["Drop down",
-                       "female",
-                       "male"]
+                       "Female",
+                       "Male"]
         clicksport = ["Drop down",
                       "Sedentary",
                       "Lightly active",
@@ -26,44 +62,59 @@ class InfoPage:
                       "Active",
                       "Very active"]
 
-        # here is getting the info users put in
-        self.inputgender = tk.StringVar()
+        self.inputgender = tk.StringVar()  # here is getting the info users put in
         self.inputweight = tk.StringVar()
         self.inputheight = tk.StringVar()
         self.inputage = tk.StringVar()
         self.inputsport = tk.StringVar()
 
-        # here is creating a series of buttom and box that input the inforamtion
-        tk.Label(self.page).grid(row=0, column=0)
+        # creating a series of buttom and box that input the inforamtion
 
-        ttk.Label(self.page, text='Gender(male/female): ', anchor="nw", width=15, style='info').grid(row=1, column=0,
-                                                                                                     pady=25)
-        ttk.OptionMenu(self.page, self.inputgender, *clickgender, style="info-outline").grid(row=1, column=2)
+        ttk.Label(self.frame21, text='                  ') \
+            .grid(row=0, column=0)
+        ttk.Label(self.frame21, text='Gender: ', width=15) \
+            .grid(row=0, column=1, padx=15,sticky='ne')
+        ttk.OptionMenu(self.frame21, self.inputgender, *clickgender, style='dark-outline') \
+            .grid(row=0, column=2, padx=20,sticky='nw')
 
-        ttk.Label(self.page, text='Weight(unit:kg): ', anchor="nw", width=15, style='info').grid(row=2, column=0,
-                                                                                                 pady=25)
-        tk.Spinbox(self.page, from_=30, to=200, textvariable=self.inputweight, wrap=False, width=10).grid(row=2,
-                                                                                                          column=2)
+        ttk.Label(self.frame22, text='                  ') \
+            .grid(row=0, column=0, sticky='n')
+        ttk.Label(self.frame22, text='Weight (unit:kg): ', width=15) \
+            .grid(row=0, column=1, padx=15, sticky='ne')
+        tk.Spinbox(self.frame22, from_=30, to=200, textvariable=self.inputweight, wrap=False, width=10) \
+            .grid(row=0, column=2, padx=20, sticky='nw')
 
-        ttk.Label(self.page, text='Height(unit:cm): ', anchor="nw", width=15, style='info').grid(row=3, column=0,
-                                                                                                 pady=25)
-        tk.Spinbox(self.page, from_=140, to=250, textvariable=self.inputheight, wrap=False, width=10).grid(row=3,
-                                                                                                           column=2)
+        ttk.Label(self.frame23, text='                  ') \
+            .grid(row=0, column=0, sticky='n')
+        ttk.Label(self.frame23, text='Height (unit:cm): ', width=15) \
+            .grid(row=0, column=1, padx=15, sticky='ne')
+        tk.Spinbox(self.frame23, from_=140, to=250, textvariable=self.inputheight, wrap=False, width=10) \
+            .grid(row=0, column=2, padx=20, sticky='nw')
 
-        ttk.Label(self.page, text='Age(integer): ', anchor="nw", width=15, style='info').grid(row=4, column=0, pady=25)
-        tk.Spinbox(self.page, from_=10, to=100, textvariable=self.inputage, wrap=False, width=10).grid(row=4, column=2)
+        ttk.Label(self.frame24, text='                  ') \
+            .grid(row=0, column=0, sticky='n')
+        ttk.Label(self.frame24, text='Age: ', width=15) \
+            .grid(row=0, column=1, padx=15, sticky='ne')
+        tk.Spinbox(self.frame24, from_=10, to=100, textvariable=self.inputage, wrap=False, width=10) \
+            .grid(row=0, column=2, padx=20, sticky='nw')
 
-        ttk.Label(self.page, text='Sport frequency: ', anchor="nw", width=15, style='info').grid(row=5, column=0,
-                                                                                                 pady=25)
-        ttk.OptionMenu(self.page, self.inputsport, *clicksport, style="info-outline").grid(row=5, column=2)
+        ttk.Label(self.frame25, text='                  ') \
+            .grid(row=0, column=0, sticky='n')
+        ttk.Label(self.frame25, text='Sport frequency: ', width=15) \
+            .grid(row=0, column=1, padx=15, sticky='ne')
+        ttk.OptionMenu(self.frame25, self.inputsport, *clicksport, style='dark-outline') \
+            .grid(row=0, column=2, padx=20, sticky='nw')
 
-        tk.Label(self.page, text='     ').grid(row=6, column=1, pady=5)  # dummy column
-        tk.Label(self.page, text=' ').grid(row=6, column=6, pady=5)  # dummy column
 
-        ttk.Button(self.page, text='Next', command=lambda: [self.gointerface2()], width=5,
-                   style='success.TButton').grid(row=7, column=4)
-        ttk.Button(self.page, text='Quit', command=self.page.quit, width=5, style='success.TButton').grid(row=7,
-                                                                                                          column=7)
+        ttk.Button(self.frame26, text='Next', command=lambda: [self.gointerface2()], width=5, style='warning.TButton') \
+            .grid(row=0, column=1, padx=200, pady=20)
+        ttk.Label(self.frame26, text='          ') \
+            .grid(row=1, column=1, sticky='n', pady=25)
+
+
+        """
+        go to next page if everything fill up
+        """
 
     def gointerface2(self):
 
@@ -78,4 +129,3 @@ class InfoPage:
             AMRPage(self.window, gender=gender, height=height, weight=weight, age=age, sport=sport)
         else:
             messagebox.showwarning(title='WARNING', message='Fail to entry, please check your information')
-

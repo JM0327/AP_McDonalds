@@ -7,7 +7,7 @@ def meal_plot(optimization_output, mealamr):
     basic information
     """
     columns = ["Calories", "Total Fat", "Saturated Fat", "Cholesterol", "Sodium", "Sugars"]
-    color_choose = ['slategray', 'lightsteelblue', 'steelblue', 'lightslategray', 'cadetblue','powderblue']  # color the bar plot
+    color_choose = ['bisque', 'darkorange', 'navajowhite', 'sandybrown', 'peachpuff','orange']  # color the bar plot
     """
     plotting
     """
@@ -37,4 +37,4 @@ def meal_plot(optimization_output, mealamr):
         plt.text(x, y + b_y_max / 100, str(round(dish_values[x], 1)) + "%", ha="center")
     return plot
 
-
+#'slategray', 'lightsteelblue', 'steelblue', 'lightslategray', 'cadetblue','powderblue'

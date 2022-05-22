@@ -36,12 +36,11 @@ class AMRPage:
         self.frame2 = ttk.Frame(self.notebook2, width=450, height=150, style="default")
         self.frame2.pack(fill='x', expand=True)
         self.frame2.pack_propagate(0)
-        self.notebook2.add(self.frame2, text='Your AMR')
+        self.notebook2.add(self.frame2, text='AMR Explanation')
 
         # window structure
-        ttk.Button(self.page, text='Quit', command=self.page.quit, width=5, style='success.TButton').pack(side='right')
-        ttk.Button(self.page, text='Next', command=self.gointerface3, width=5,
-                   style='success.TButton').pack(padx=10, side='right')
+        ttk.Button(self.page, text='Next', command=self.gointerface3, width=5, style='warning.TButton')\
+            .pack(side='right')
 
         self.amr, self.breakfastamr, self.lunchamr, self.dinneramr = amrcalculation(gender=self.gender,
                                                                                     weight=self.weight,
@@ -56,13 +55,13 @@ class AMRPage:
     def showresult(self):
         if self.amr > 0 and self.breakfastamr > 0 and self.lunchamr > 0 and self.dinneramr > 0:
             ttk.Label(self.frame1, text=f"Your AMR is {self.amr} calories per day.", anchor='sw', font=(40),
-                      style="info", width=200).pack(pady=5)
+                      style="default", width=200).pack(pady=5)
             ttk.Label(self.frame1, text=f"AMR for breakfast is {self.breakfastamr} calories.", anchor='sw', font=(40),
-                      style="info", width=200).pack(pady=5)
+                      style="default", width=200).pack(pady=5)
             ttk.Label(self.frame1, text=f"AMR for lunch is {self.lunchamr} calories.", anchor='sw', font=(40),
-                      style="info", width=200).pack(pady=5)
+                      style="default", width=200).pack(pady=5)
             ttk.Label(self.frame1, text=f"AMR for dinner is {self.dinneramr} calories.", anchor='sw', font=(40),
-                      style="info", width=200).pack(pady=5)
+                      style="default", width=200).pack(pady=5)
         else:
             ttk.Label(self.frame1, text="Please re-login and enter your personal information correctly.", anchor='sw',
                       font=(40), width=200, style="info").pack(pady=5)
@@ -76,10 +75,14 @@ class AMRPage:
         explanation3 = "AMR for lunch occupies 35% of AMR per day, respectively."
         explanation4 = "AMR for dinner occupies 30% of AMR per day."
 
-        tk.Message(self.frame2, text=explanation1, width=440, anchor='w', justify='left', bg='white').pack(pady=5, anchor='w',fill='x')
-        tk.Message(self.frame2, text=explanation2, width=440, anchor='w', justify='left', bg='white').pack(pady=2, anchor='w',fill='x')
-        tk.Message(self.frame2, text=explanation3, width=440, anchor='w', justify='left', bg='white').pack(pady=2, anchor='w',fill='x')
-        tk.Message(self.frame2, text=explanation4, width=440, anchor='w', justify='left', bg='white').pack(pady=2, anchor='w',fill='x')
+        tk.Message(self.frame2, text=explanation1, width=440, anchor='w', justify='left', bg='white',
+                   foreground='grey').pack(pady=5, anchor='w',fill='x')
+        tk.Message(self.frame2, text=explanation2, width=440, anchor='w', justify='left', bg='white',
+                   foreground='grey').pack(pady=2, anchor='w',fill='x')
+        tk.Message(self.frame2, text=explanation3, width=440, anchor='w', justify='left', bg='white',
+                   foreground='grey').pack(pady=2, anchor='w',fill='x')
+        tk.Message(self.frame2, text=explanation4, width=440, anchor='w', justify='left', bg='white',
+                   foreground='grey').pack(pady=2, anchor='w',fill='x')
 
 
 
@@ -87,7 +90,11 @@ class AMRPage:
         self.notebook1.destroy()
         self.notebook2.destroy()
         self.page.destroy()
-        Recommendation(self.window, amr= self.amr, breakfastamr=self.breakfastamr, lunchamr=self.lunchamr, dinneramr=self.dinneramr)
+        Recommendation(self.window,
+                       amr=self.amr,
+                       breakfastamr=self.breakfastamr,
+                       lunchamr=self.lunchamr,
+                       dinneramr=self.dinneramr)
 
 
 
