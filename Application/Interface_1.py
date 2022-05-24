@@ -49,7 +49,7 @@ class InfoPage:
         self.label_img.pack(anchor='center')
 
         """
-        personal informaitno input
+        personal information input
         """
 
         clickgender = ["Drop down",
