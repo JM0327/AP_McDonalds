@@ -3,6 +3,7 @@ from tkinter import messagebox
 import ttkbootstrap as ttk
 from PIL import Image, ImageTk
 
+
 class InfoPage:
 
     def __init__(self, master):
@@ -38,7 +39,6 @@ class InfoPage:
         self.frame25.pack(fill='x', pady=10, anchor='n')
         self.frame26.pack(fill='x', pady=5, anchor='n')
 
-
         """
         logo
         """
@@ -51,7 +51,6 @@ class InfoPage:
         """
         personal information input
         """
-
         clickgender = ["Drop down",
                        "Female",
                        "Male"]
@@ -73,9 +72,9 @@ class InfoPage:
         ttk.Label(self.frame21, text='                  ') \
             .grid(row=0, column=0)
         ttk.Label(self.frame21, text='Gender: ', width=15) \
-            .grid(row=0, column=1, padx=15,sticky='ne')
+            .grid(row=0, column=1, padx=15, sticky='ne')
         ttk.OptionMenu(self.frame21, self.inputgender, *clickgender, style='dark-outline') \
-            .grid(row=0, column=2, padx=20,sticky='nw')
+            .grid(row=0, column=2, padx=20, sticky='nw')
 
         ttk.Label(self.frame22, text='                  ') \
             .grid(row=0, column=0, sticky='n')
@@ -105,12 +104,10 @@ class InfoPage:
         ttk.OptionMenu(self.frame25, self.inputsport, *clicksport, style='dark-outline') \
             .grid(row=0, column=2, padx=20, sticky='nw')
 
-
         ttk.Button(self.frame26, text='Next', command=lambda: [self.gointerface2()], width=5, style='warning.TButton') \
             .grid(row=0, column=1, padx=200, pady=20)
         ttk.Label(self.frame26, text='          ') \
             .grid(row=1, column=1, sticky='n', pady=25)
-
 
         """
         go to next page if everything fill up
@@ -124,8 +121,9 @@ class InfoPage:
         age = self.inputage.get()
         sport = self.inputsport.get()
 
-        if gender == "female" or gender == "male" and not sport is None:
+        if gender == "female" or gender == "male" and sport == "Sedentary" or sport == "Lightly active" or sport == "Moderately active" or sport == "Active" or sport == "Very active":
             self.page.destroy()
             AMRPage(self.window, gender=gender, height=height, weight=weight, age=age, sport=sport)
         else:
             messagebox.showwarning(title='WARNING', message='Fail to entry, please check your information')
+
