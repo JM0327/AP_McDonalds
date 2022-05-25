@@ -5,8 +5,6 @@ from Nutrition_plot import *
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk  # NavigationToolbar2TkAgg
 
 
-
-
 class Recommendation:
     def __init__(self, master, amr, breakfastamr, lunchamr, dinneramr):
         """
@@ -96,27 +94,29 @@ class Recommendation:
         """
         showing result function
         """
+
     def breakfast(self):
-        b= self.breakfast_output['name']
+        b = self.breakfast_output['name']
         breakfastdish = "\n".join(b)
         tk.Message(self.frame11, text=breakfastdish, width=400, anchor='w', justify='left', bg='white').pack(
-            pady=10, padx=10, anchor='w',fill='x')
+            pady=10, padx=10, anchor='w', fill='x')
 
     def lunch(self):
         l = self.lunch_output['name']
         lunchdish = "\n".join(l)
-        tk.Message(self.frame21, text=lunchdish, width=450, anchor='w', justify='left',bg='white').pack(
-            pady=10, padx=10, anchor='w',fill='x')
+        tk.Message(self.frame21, text=lunchdish, width=450, anchor='w', justify='left', bg='white').pack(
+            pady=10, padx=10, anchor='w', fill='x')
 
     def dinner(self):
         d = self.dinner_output['name']
         dinnerdish = "\n".join(d)
-        tk.Message(self.frame31, text=dinnerdish, width=450, anchor='w', justify='left',bg='white').pack(
-            pady=10, padx=10, anchor='w',fill='x')
+        tk.Message(self.frame31, text=dinnerdish, width=450, anchor='w', justify='left', bg='white').pack(
+            pady=10, padx=10, anchor='w', fill='x')
 
         """
         plotting function
         """
+
     def breakfast_plot(self):
         breakfastplot = meal_plot(optimization_output=self.breakfast_output, mealamr=self.breakfastamr)
         return breakfastplot
@@ -125,7 +125,7 @@ class Recommendation:
         self.canvas1 = FigureCanvasTkAgg(figure, self.frame12)
         self.canvas1.draw()
         self.canvas1.get_tk_widget().pack(fill='y')
-        toolbar = NavigationToolbar2Tk(self.canvas1,self.frame12)
+        toolbar = NavigationToolbar2Tk(self.canvas1, self.frame12)
         toolbar.update()
         self.canvas1.tkcanvas.pack()
 
@@ -137,20 +137,18 @@ class Recommendation:
         self.canvas2 = FigureCanvasTkAgg(figure, self.frame22)
         self.canvas2.draw()
         self.canvas2.get_tk_widget().pack(fill='y')
-        toolbar = NavigationToolbar2Tk(self.canvas2,self.frame22)
+        toolbar = NavigationToolbar2Tk(self.canvas2, self.frame22)
         toolbar.update()
         self.canvas2.tkcanvas.pack()
 
     def dinner_plot(self):
-        dinnerplot = meal_plot(optimization_output =self.dinner_output, mealamr=self.dinneramr)
+        dinnerplot = meal_plot(optimization_output=self.dinner_output, mealamr=self.dinneramr)
         return dinnerplot
 
     def figure3_form(self, figure):
         self.canvas3 = FigureCanvasTkAgg(figure, self.frame32)
         self.canvas3.draw()
         self.canvas3.get_tk_widget().pack(fill='y')
-        toolbar = NavigationToolbar2Tk(self.canvas3,self.frame32)
+        toolbar = NavigationToolbar2Tk(self.canvas3, self.frame32)
         toolbar.update()
         self.canvas3.tkcanvas.pack()
-
-

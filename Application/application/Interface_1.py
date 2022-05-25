@@ -42,7 +42,7 @@ class InfoPage:
         """
         logo
         """
-        self.image = Image.open("../Application/Picture/McDonalds_logo.jpg")
+        self.image = Image.open("../logo/McDonalds_logo.jpg")
         self.image = self.image.resize((154, 117), Image.ANTIALIAS)
         self.logo = ImageTk.PhotoImage(self.image)
         self.label_img = tk.Label(self.frame1, image=self.logo)
