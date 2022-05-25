@@ -121,7 +121,7 @@ class InfoPage:
         age = self.inputage.get()
         sport = self.inputsport.get()
 
-        if gender == "female" or gender == "male" and sport == "Sedentary" or sport == "Lightly active" or sport == "Moderately active" or sport == "Active" or sport == "Very active":
+        if gender != "Drop down" and sport != "Drop down":
             self.page.destroy()
             AMRPage(self.window, gender=gender, height=height, weight=weight, age=age, sport=sport)
         else:
