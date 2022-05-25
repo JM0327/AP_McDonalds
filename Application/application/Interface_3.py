@@ -118,7 +118,7 @@ class Recommendation:
         """
 
     def breakfast_plot(self):
-        breakfastplot = meal_plot(optimization_output=self.breakfast_output, mealamr=self.breakfastamr)
+        breakfastplot = meal_plot(optimization_output=self.breakfast_output, mealamr=self.breakfastamr, ratio=0.35)
         return breakfastplot
 
     def figure1_form(self, figure):
@@ -130,7 +130,7 @@ class Recommendation:
         self.canvas1.tkcanvas.pack()
 
     def lunch_plot(self):
-        lunchplot = meal_plot(optimization_output=self.lunch_output, mealamr=self.lunchamr)
+        lunchplot = meal_plot(optimization_output=self.lunch_output, mealamr=self.lunchamr, ratio=0.35)
         return lunchplot
 
     def figure2_form(self, figure):
@@ -142,7 +142,7 @@ class Recommendation:
         self.canvas2.tkcanvas.pack()
 
     def dinner_plot(self):
-        dinnerplot = meal_plot(optimization_output=self.dinner_output, mealamr=self.dinneramr)
+        dinnerplot = meal_plot(optimization_output=self.dinner_output, mealamr=self.dinneramr, ratio=0.30)
         return dinnerplot
 
     def figure3_form(self, figure):

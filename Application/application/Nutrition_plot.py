@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 
-def meal_plot(optimization_output, mealamr):
+def meal_plot(optimization_output, mealamr, ratio):
     """
     basic information
     """
@@ -25,7 +25,7 @@ def meal_plot(optimization_output, mealamr):
         if i == 0:
             dish_values[i] = dish_values[i] * 100 / mealamr
         else:
-            dish_values[i] = dish_values[i] / 0.35
+            dish_values[i] = dish_values[i] / ratio
     x_axis = range(len(columns))
     plt.bar(x_axis, dish_values, width=0.4, color=color_choose)
     figure.set_xticks(x_axis, columns)
@@ -37,4 +37,3 @@ def meal_plot(optimization_output, mealamr):
         plt.text(x, y + b_y_max / 100, str(round(dish_values[x], 1)) + "%", ha="center")
     return plot
 
-#'slategray', 'lightsteelblue', 'steelblue', 'lightslategray', 'cadetblue','powderblue'
