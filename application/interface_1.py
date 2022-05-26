@@ -14,7 +14,7 @@ class InfoPage:
 
         self.window = style.master
         self.window.title('McDonalds')
-        self.window.geometry('500x500')  # size
+        self.window.geometry('500x550')  # size
 
         self.page = tk.Frame(self.window)
         self.page.pack(fill='both')
@@ -43,7 +43,7 @@ class InfoPage:
         logo
         """
         self.image = Image.open("../logo/McDonalds_logo.jpg")
-        self.image = self.image.resize((154, 117), Image.ANTIALIAS)
+        self.image = self.image.resize((220, 167), Image.ANTIALIAS)
         self.logo = ImageTk.PhotoImage(self.image)
         self.label_img = tk.Label(self.frame1, image=self.logo)
         self.label_img.pack(anchor='center')

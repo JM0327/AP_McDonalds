@@ -13,7 +13,7 @@ class Recommendation:
         style = ttk.Style(theme='flatly')
         self.window = style.master
         self.window.title('Personal Information')
-        self.window.geometry('500x500')  # size
+        self.window.geometry('500x550')  # size
         self.page = tk.Frame(self.window)
         self.page.pack()
         """
@@ -23,12 +23,12 @@ class Recommendation:
                 - frame1.1 -> for showing result
                 - frame1.2 -> for plotting
         """
-        self.notebook = ttk.Notebook(style.master, style='warning', height=480)
+        self.notebook = ttk.Notebook(self.window, style='warning', height=450)
         self.notebook.pack(anchor='s', pady=5, expand=True)
 
-        self.frame1 = tk.Frame(self.notebook, width=480, height=480)
-        self.frame11 = tk.Frame(self.frame1, width=480, height=130)
-        self.frame12 = tk.Frame(self.frame1, width=480, height=340)
+        self.frame1 = tk.Frame(self.notebook, width=480, height=450)
+        self.frame11 = tk.Frame(self.frame1, width=480, height=120)
+        self.frame12 = tk.Frame(self.frame1, width=480, height=330)
         self.frame1.pack(fill='both', expand=True)
         self.frame11.pack(fill='x', anchor='n', pady=5)
         self.frame12.pack(fill='x', anchor='s')
@@ -36,9 +36,9 @@ class Recommendation:
         self.frame11.pack_propagate(0)
         self.frame12.pack_propagate(0)
 
-        self.frame2 = tk.Frame(self.notebook, width=480, height=480)
-        self.frame21 = tk.Frame(self.frame2, width=480, height=130)
-        self.frame22 = tk.Frame(self.frame2, width=480, height=340)
+        self.frame2 = tk.Frame(self.notebook, width=480, height=450)
+        self.frame21 = tk.Frame(self.frame2, width=480, height=120)
+        self.frame22 = tk.Frame(self.frame2, width=480, height=330)
         self.frame2.pack(fill='both', expand=True)
         self.frame21.pack(fill='x', expand=True, anchor='n', pady=5)
         self.frame22.pack(fill='x', expand=True, anchor='s')
@@ -46,15 +46,16 @@ class Recommendation:
         self.frame21.pack_propagate(0)
         self.frame22.pack_propagate(0)
 
-        self.frame3 = tk.Frame(self.notebook, width=480, height=480)
-        self.frame31 = tk.Frame(self.frame3, width=480, height=130)
-        self.frame32 = tk.Frame(self.frame3, width=480, height=340)
-        self.frame2.pack(fill='both', expand=True)
+        self.frame3 = tk.Frame(self.notebook, width=480, height=450)
+        self.frame31 = tk.Frame(self.frame3, width=480, height=120)
+        self.frame32 = tk.Frame(self.frame3, width=480, height=330)
+        self.frame3.pack(fill='both', expand=True)
         self.frame31.pack(fill='x', expand=True, anchor='n', pady=5)
         self.frame32.pack(fill='x', expand=True, anchor='s')
         self.frame3.pack_propagate(0)
         self.frame31.pack_propagate(0)
         self.frame32.pack_propagate(0)
+
 
         self.notebook.add(self.frame1, text='Breakfast choice')
         self.notebook.add(self.frame2, text='Lunch choice')
@@ -92,9 +93,18 @@ class Recommendation:
         self.dinner()
 
         """
+        quit window
+        """
+        self.frame0 = tk.Frame(self.window, width=480, height=50)
+        self.frame0.pack(fill='x', expand=True, anchor='s')
+        self.frame0.pack_propagate(0)
+
+        ttk.Button(self.frame0, text='Quit', command=self.page.quit, width=5, style='warning.TButton') \
+            .pack(side='right', padx=10)
+
+        """
         showing result function
         """
-
     def breakfast(self):
         b = self.breakfast_output['name']
         breakfastdish = "\n".join(b)
@@ -104,13 +114,13 @@ class Recommendation:
     def lunch(self):
         l = self.lunch_output['name']
         lunchdish = "\n".join(l)
-        tk.Message(self.frame21, text=lunchdish, width=450, anchor='w', justify='left', bg='white').pack(
+        tk.Message(self.frame21, text=lunchdish, width=400, anchor='w', justify='left', bg='white').pack(
             pady=10, padx=10, anchor='w', fill='x')
 
     def dinner(self):
         d = self.dinner_output['name']
         dinnerdish = "\n".join(d)
-        tk.Message(self.frame31, text=dinnerdish, width=450, anchor='w', justify='left', bg='white').pack(
+        tk.Message(self.frame31, text=dinnerdish, width=400, anchor='w', justify='left', bg='white').pack(
             pady=10, padx=10, anchor='w', fill='x')
 
         """

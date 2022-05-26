@@ -16,15 +16,15 @@ class AMRPage:
         style = ttk.Style(theme='flatly')
         self.window = style.master
         self.window.title('McDonalds')
-        self.window.geometry('500x500')  # size
+        self.window.geometry('500x550')  # size
 
         self.page = tk.Frame(self.window)
-        self.page.pack()
+        self.page.pack(pady=20)
 
         # Creat 2 notebook frame to put the amr result in
         # first one for amr result
         self.notebook1 = ttk.Notebook(self.page, style='default')
-        self.notebook1.pack(pady=15, expand=True, anchor='n')
+        self.notebook1.pack(pady=20, expand=True, anchor='n')
         self.frame1 = ttk.Frame(self.notebook1, width=450, height=150, style="default")
         self.frame1.pack(fill='x', expand=True)
         self.frame1.pack_propagate(0)
@@ -32,7 +32,7 @@ class AMRPage:
 
         # second one for amr explanation
         self.notebook2 = ttk.Notebook(self.page, style='default')
-        self.notebook2.pack(pady=15, expand=True, anchor='n')
+        self.notebook2.pack(pady=20, expand=True, anchor='n')
         self.frame2 = ttk.Frame(self.notebook2, width=450, height=150, style="default")
         self.frame2.pack(fill='x', expand=True)
         self.frame2.pack_propagate(0)
