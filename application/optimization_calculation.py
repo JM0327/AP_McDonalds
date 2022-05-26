@@ -17,7 +17,7 @@ def optimization_meal(breakfastamr, lunchamr, dinneramr):
         data['menu_flag'] = menu_flag
         return data
 
-    menu = pd.read_csv("./data/menu.csv")
+    menu = pd.read_csv("../data/menu.csv")
     # define output
     output = {
         "id": None,
