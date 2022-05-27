@@ -31,7 +31,7 @@ def meal_plot(optimization_output, mealamr, ratio):
     figure.set_xticks(x_axis, columns)
     figure.set_yticks(np.arange(0, 110, 10))
     figure.set_ylabel("percentage")
-    plt.title("The nutrition provided by McDonald's breakfast\n(% of total meal nutrition needed)")
+    plt.title("The nutrition provided by this meal\n(% of total meal nutrition needed)")
     b_y_max = max(dish_values) + max(dish_values) / 6
     for x, y in enumerate(dish_values):
         plt.text(x, y + b_y_max / 100, str(round(dish_values[x], 1)) + "%", ha="center")

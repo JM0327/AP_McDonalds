@@ -69,7 +69,7 @@ class AMRPage:
 
     # amr explanation for frame2
     def amrexplanation(self):
-        explanation1 = "AMR represents the amount of calories you need or consume to consume " \
+        explanation1 = "AMR represents the amount of calories you need to consume or intake " \
                        "each day to stay at your current weight."
         explanation2 = "AMR for breakfast occupies 35% of AMR per day, respectively."
         explanation3 = "AMR for lunch occupies 35% of AMR per day, respectively."
